@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Prova Acessível</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Biblioteca WebGazer (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/webgazer/dist/webgazer.min.js"></script>
+</head>
+<body>
+  <h1>Prova Inclusiva e Acessível</h1>
+
+  <div id="quiz-container">
+    <div id="question-container"></div>
+    <div id="options-container"></div>
+    <button id="next-btn" class="hidden">Próxima Pergunta</button>
+  </div>
+
+  <div id="result" class="hidden">
+    <h2>Resultado final:</h2>
+    <p id="score"></p>
+  </div>
+
+  <!-- Script principal (separado) -->
+  <script src="script.js"></script>
+</body>
+</html>
