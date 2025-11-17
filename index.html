@@ -3,26 +3,76 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Prova Acessível</title>
+  <title>Prova Inclusiva e Acessível - IFG</title>
+  <meta name="description" content="Sistema de avaliação acessível para pessoas com deficiência motora e labial" />
   <link rel="stylesheet" href="style.css" />
-  <!-- Biblioteca WebGazer (CDN) -->
-  <script src="https://cdn.jsdelivr.net/npm/webgazer/dist/webgazer.min.js"></script>
+  <!-- Biblioteca WebGazer para Eye Tracking -->
+  <script src="https://webgazer.cs.brown.edu/webgazer.js" defer></script>
 </head>
 <body>
-  <h1>Prova Inclusiva e Acessível</h1>
+  <header>
+    <h1>📚 Prova Inclusiva e Acessível</h1>
+    <p class="subtitle">Sistema desenvolvido para promover igualdade no acesso à educação</p>
+  </header>
 
-  <div id="quiz-container">
-    <div id="question-container"></div>
-    <div id="options-container"></div>
-    <button id="next-btn" class="hidden">Próxima Pergunta</button>
-  </div>
+  <main>
+    <div id="quiz-container">
+      <!-- Área da pergunta -->
+      <div id="question-container"></div>
+      
+      <!-- Área das opções (múltipla escolha ou frases prontas) -->
+      <div id="options-container"></div>
+      
+      <!-- Área para respostas discursivas -->
+      <div id="discursiva-area" class="hidden">
+        <h3>📝 Sua resposta:</h3>
+        <div id="texto-discursivo" class="texto-area"></div>
+        <div class="botoes-discursiva">
+          <button id="limpar-btn" class="btn-secundario">🗑️ Limpar</button>
+          <button id="enviar-discursiva-btn" class="btn-primario">📤 Enviar Resposta</button>
+        </div>
+      </div>
+      
+      <!-- Botão próxima pergunta -->
+      <button id="next-btn" class="hidden btn-proximo">➡️ Próxima Pergunta</button>
+      
+      <!-- Rodapé com funcionalidades futuras -->
+      <div class="quiz-footer">
+        <h4>🔧 Recursos de Acessibilidade</h4>
+        <div class="recursos-container">
+          <button id="btn-tts" class="btn-recurso" onclick="ativarLeituraAutomatica(document.getElementById('question-container').textContent)" title="Ativar leitura automática de texto">
+            <span class="icone">🔊</span>
+            <span class="texto">Leitura Automática</span>
+            <span class="status">Em breve</span>
+          </button>
+          
+          <button id="btn-eye-tracking" class="btn-recurso" onclick="ativarEyeTracking()" title="Ativar controle por movimento dos olhos">
+            <span class="icone">👁️</span>
+            <span class="texto">Eye Tracking</span>
+            <span class="status">Em breve</span>
+          </button>
+          
+          <button id="btn-simular-olhar" class="btn-recurso" onclick="simularOlhar()" title="Modo demonstração com simulação de olhar">
+            <span class="icone">🎯</span>
+            <span class="texto">Simular Olhar</span>
+            <span class="status">Em breve</span>
+          </button>
+        </div>
+      </div>
+    </div>
 
-  <div id="result" class="hidden">
-    <h2>Resultado final:</h2>
-    <p id="score"></p>
-  </div>
+    <!-- Resultado -->
+    <div id="result" class="hidden">
+      <p id="score"></p>
+    </div>
+  </main>
 
-  <!-- Script principal (separado) -->
+  <footer>
+    <p>♿ Acessibilidade é um direito de todos</p>
+    <p class="info-tech">Instituto Federal de Goiás - Projeto Inclusão Digital</p>
+  </footer>
+
+  <!-- Script principal -->
   <script src="script.js"></script>
 </body>
 </html>
