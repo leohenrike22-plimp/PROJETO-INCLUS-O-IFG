@@ -72,6 +72,219 @@
     <p class="info-tech">Instituto Federal de Goiás - Projeto Inclusão Digital</p>
   </footer>
 
+  <!-- Modal de Configuração do Eye Tracking -->
+  <div id="modal-eye-tracking" class="modal-overlay hidden">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2>👁️ Configuração do Eye Tracking</h2>
+        <button class="modal-close" onclick="fecharModalEyeTracking()">✕</button>
+      </div>
+      
+      <div class="modal-body">
+        <!-- Indicador de progresso -->
+        <div class="progress-steps">
+          <div class="step active" id="step-indicator-1">
+            <div class="step-number">1</div>
+            <span>Permissões</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="step" id="step-indicator-2">
+            <div class="step-number">2</div>
+            <span>Posicionamento</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="step" id="step-indicator-3">
+            <div class="step-number">3</div>
+            <span>Iluminação</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="step" id="step-indicator-4">
+            <div class="step-number">4</div>
+            <span>Calibração</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="step" id="step-indicator-5">
+            <div class="step-number">5</div>
+            <span>Teste</span>
+          </div>
+        </div>
+
+        <!-- Conteúdo dos passos -->
+        <div class="step-content">
+          <!-- Passo 1: Permissões -->
+          <div class="step-panel active" id="step-1">
+            <div class="step-icon">📸</div>
+            <h3>Passo 1: Permitir Acesso à Câmera</h3>
+            <div class="step-description">
+              <p>O navegador solicitará permissão para usar sua câmera.</p>
+              <div class="instruction-box">
+                <ul>
+                  <li>✅ Clique em <strong>"Permitir"</strong> quando solicitado</li>
+                  <li>🔒 Seus dados não serão gravados ou enviados</li>
+                  <li>💻 O processamento é feito localmente no navegador</li>
+                </ul>
+              </div>
+              <div class="warning-box">
+                <strong>⚠️ Importante:</strong> Sem acesso à câmera, o Eye Tracking não funcionará.
+              </div>
+            </div>
+          </div>
+
+          <!-- Passo 2: Posicionamento -->
+          <div class="step-panel" id="step-2">
+            <div class="step-icon">📏</div>
+            <h3>Passo 2: Posicionamento Correto</h3>
+            <div class="step-description">
+              <div class="positioning-guide">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23f0f0f0' width='400' height='300'/%3E%3Crect x='50' y='20' width='300' height='180' fill='%23667eea' rx='10'/%3E%3Crect x='70' y='40' width='260' height='140' fill='%23e0e0e0'/%3E%3Ccircle cx='200' cy='240' r='30' fill='%23ff9800'/%3E%3Cpath d='M185,235 Q200,225 215,235' stroke='%23333' fill='none' stroke-width='3'/%3E%3Ccircle cx='190' cy='230' r='5' fill='%23333'/%3E%3Ccircle cx='210' cy='230' r='5' fill='%23333'/%3E%3Ctext x='200' y='285' text-anchor='middle' font-size='14' fill='%23333'%3E50-70cm%3C/text%3E%3C/svg%3E" alt="Posicionamento" class="guide-image">
+              </div>
+              <div class="instruction-box">
+                <ul>
+                  <li>📐 <strong>Distância:</strong> 50-70 cm da tela</li>
+                  <li>👤 <strong>Altura:</strong> Rosto centralizado com a tela</li>
+                  <li>🪑 <strong>Postura:</strong> Sente-se confortavelmente e ereto</li>
+                  <li>📷 <strong>Câmera:</strong> Na altura dos olhos</li>
+                </ul>
+              </div>
+              <div class="tip-box">
+                <strong>💡 Dica:</strong> Use um suporte para notebook ou ajuste a altura do monitor.
+              </div>
+            </div>
+          </div>
+
+          <!-- Passo 3: Iluminação -->
+          <div class="step-panel" id="step-3">
+            <div class="step-icon">💡</div>
+            <h3>Passo 3: Iluminação Adequada</h3>
+            <div class="step-description">
+              <div class="lighting-examples">
+                <div class="lighting-card good">
+                  <div class="card-icon">✅</div>
+                  <h4>Iluminação Boa</h4>
+                  <ul>
+                    <li>Luz uniforme no rosto</li>
+                    <li>Sem sombras fortes</li>
+                    <li>Luz natural ou artificial indireta</li>
+                  </ul>
+                </div>
+                <div class="lighting-card bad">
+                  <div class="card-icon">❌</div>
+                  <h4>Evitar</h4>
+                  <ul>
+                    <li>Contraluz (janela atrás)</li>
+                    <li>Sombras no rosto</li>
+                    <li>Luz muito fraca ou muito forte</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="instruction-box">
+                <ul>
+                  <li>☀️ Prefira luz natural difusa</li>
+                  <li>💡 Use luz ambiente suave</li>
+                  <li>🔆 Evite luz direta nos olhos</li>
+                  <li>🪟 Não fique de costas para janela</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Passo 4: Calibração -->
+          <div class="step-panel" id="step-4">
+            <div class="step-icon">🎯</div>
+            <h3>Passo 4: Processo de Calibração</h3>
+            <div class="step-description">
+              <p><strong>A calibração iniciará automaticamente quando você clicar em "Iniciar Eye Tracking".</strong></p>
+              <div class="instruction-box">
+                <h4 style="color: #667eea; margin-bottom: 10px;">📍 O que acontecerá:</h4>
+                <ol>
+                  <li>🔴 <strong>9 pontos vermelhos</strong> aparecerão pela tela (um de cada vez)</li>
+                  <li>👀 <strong>Olhe diretamente</strong> para cada ponto que aparecer</li>
+                  <li>🖱️ <strong>Clique no centro</strong> de cada ponto</li>
+                  <li>⏱️ Você terá <strong>4 segundos</strong> para cada ponto</li>
+                  <li>⌚ Tempo total: <strong>8 segundos de calibração</strong></li>
+                  <li>✅ Mínimo recomendado: clicar em <strong>5 pontos</strong></li>
+                </ol>
+              </div>
+              <div class="calibration-tips">
+                <h4>📋 Regras IMPORTANTES durante a calibração:</h4>
+                <ul>
+                  <li><strong>🚫 NÃO mova a cabeça</strong> - mantenha-a completamente imóvel</li>
+                  <li><strong>👁️ Mova APENAS os olhos</strong> para olhar para os pontos</li>
+                  <li><strong>🎯 Olhe ANTES de clicar</strong> - olhe para o ponto, depois clique</li>
+                  <li><strong>⏸️ Mantenha postura estável</strong> durante toda a calibração</li>
+                  <li><strong>🔄 Pode recalibrar</strong> clicando nos pontos novamente depois</li>
+                </ul>
+              </div>
+              <div class="warning-box">
+                <strong>⚠️ Atenção:</strong> Quanto mais pontos você clicar com precisão, melhor será a detecção do seu olhar. Não tenha pressa!
+              </div>
+              <div class="tip-box">
+                <strong>💡 Dica Pro:</strong> Se a detecção não estiver boa após a calibração, você pode clicar em vários pontos pela tela a qualquer momento para melhorar a precisão.
+              </div>
+            </div>
+          </div>
+
+          <!-- Passo 5: Teste -->
+          <div class="step-panel" id="step-5">
+            <div class="step-icon">✅</div>
+            <h3>Passo 5: Pronto para Começar!</h3>
+            <div class="step-description">
+              <p><strong>Você está pronto para usar o Eye Tracking!</strong></p>
+              <div class="success-box" style="margin: 30px 0;">
+                <div style="font-size: 3em; margin-bottom: 15px;">🎉</div>
+                <h3 style="color: #4caf50; margin-bottom: 15px;">Tudo Configurado!</h3>
+                <p style="font-size: 1.1em; line-height: 1.6;">
+                  Ao clicar em "Iniciar Eye Tracking", o processo de calibração começará automaticamente.<br><br>
+                  <strong>Lembre-se:</strong> Siga os pontos vermelhos e clique neles!
+                </p>
+              </div>
+              
+              <div class="instruction-box">
+                <h4 style="color: #667eea; margin-bottom: 10px;">🎯 Como usar após calibração:</h4>
+                <ul>
+                  <li>👁️ O ponto vermelho seguirá seu olhar pela tela</li>
+                  <li>⏱️ Olhe para um botão por <strong>2 segundos</strong> para selecioná-lo</li>
+                  <li>📊 Uma barra de progresso aparecerá no botão</li>
+                  <li>✨ Quando completar, o botão será clicado automaticamente</li>
+                </ul>
+              </div>
+
+              <div class="test-checklist">
+                <h4 style="color: #2c3e50; margin-bottom: 15px;">📝 Checklist pós-calibração (marque após testar):</h4>
+                <div class="checklist-item">
+                  <input type="checkbox" id="test-1">
+                  <label for="test-1">O ponto vermelho segue meu olhar suavemente</label>
+                </div>
+                <div class="checklist-item">
+                  <input type="checkbox" id="test-2">
+                  <label for="test-2">Consigo selecionar botões olhando para eles</label>
+                </div>
+                <div class="checklist-item">
+                  <input type="checkbox" id="test-3">
+                  <label for="test-3">A barra de progresso aparece nos botões</label>
+                </div>
+                <div class="checklist-item">
+                  <input type="checkbox" id="test-4">
+                  <label for="test-4">O sistema responde em aproximadamente 2 segundos</label>
+                </div>
+              </div>
+              
+              <div class="tip-box">
+                <strong>💡 Dica Final:</strong> Se algo não funcionar bem, você pode clicar em mais pontos da tela a qualquer momento para recalibrar e melhorar a precisão.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="voltarPassoModal()" id="btn-voltar-modal">← Voltar</button>
+        <button class="btn-primary" onclick="avancarPassoModal()" id="btn-avancar-modal">Próximo →</button>
+        <button class="btn-success hidden" onclick="iniciarEyeTracking()" id="btn-iniciar-modal">🚀 Iniciar Eye Tracking</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Script principal -->
   <script src="script.js"></script>
 </body>
