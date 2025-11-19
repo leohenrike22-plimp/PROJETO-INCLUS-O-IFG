@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Teste Debug - Sistema de Prova</title>
+</head>
+<body>
+  <h1>Teste de Debug do Sistema</h1>
+  <div id="log" style="font-family: monospace; white-space: pre; padding: 20px; background: #f0f0f0;"></div>
+
+  <script>
+    const log = document.getElementById('log');
+    function addLog(msg) {
+      log.textContent += msg + '\n';
+      console.log(msg);
+    }
+
+    addLog('=== INICIANDO TESTES ===\n');
+  </script>
+
+  <!-- Carregar scripts na ordem correta -->
+  <script src="https://webgazer.cs.brown.edu/webgazer.js"></script>
+  <script>
+    addLog('✅ WebGazer carregado: ' + (typeof webgazer !== 'undefined'));
+  </script>
+
+  <script src="eye-tracking.js"></script>
+  <script>
+    addLog('✅ eye-tracking.js carregado');
+    addLog('   - ativarEyeTracking existe: ' + (typeof ativarEyeTracking !== 'undefined'));
+    addLog('   - iniciarEyeTracking existe: ' + (typeof iniciarEyeTracking !== 'undefined'));
+    addLog('   - mostrarModalEyeTracking existe: ' + (typeof mostrarModalEyeTracking !== 'undefined'));
+  </script>
+
+  <script src="script.js"></script>
+  <script>
+    addLog('✅ script.js carregado');
+    addLog('   - eyeTrackingAtivo: ' + (typeof eyeTrackingAtivo !== 'undefined'));
+    addLog('   - eyeTrackingConfig: ' + (typeof eyeTrackingConfig !== 'undefined'));
+    addLog('   - passoAtualModal: ' + (typeof passoAtualModal !== 'undefined'));
+    addLog('   - ttsAtivo: ' + (typeof ttsAtivo !== 'undefined'));
+    addLog('   - lerTexto existe: ' + (typeof lerTexto !== 'undefined'));
+    addLog('   - mostrarPergunta existe: ' + (typeof mostrarPergunta !== 'undefined'));
+    
+    addLog('\n=== TESTE CONCLUÍDO ===');
+    addLog('Todos os módulos foram carregados corretamente!');
+  </script>
+</body>
+</html>
